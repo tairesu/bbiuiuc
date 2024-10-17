@@ -1,0 +1,260 @@
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+.UserPage_wrapper__UgtmB, .HtmlWidget_container__xuiwx{
+  padding:0 !important
+
+}
+.UserPage_wrapper__UgtmB{
+  overflow:visible !important;
+}
+.HTML__container{
+  cursor: auto; 
+
+}
+
+.nav{
+  top:0;
+  left:0;
+  padding:1em !important;  
+  z-index:9; 
+  width:100%;
+  position:absolute;  
+}
+.innernav {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-self: flex-start;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 1.4rem;
+  justify-content: space-between; 
+    top: 0;
+  right: 0; 
+ height:10vh;
+  z-index: 4;
+}
+.innernav .sitelogo{
+width:3rem !important; 
+height:3rem !important;
+margin-top:-3px;
+}
+
+
+.gal {
+  /*box-shadow: inset -0px -8px 10px #121213;*/
+  display: flex; 
+  position: relative;
+  width: 100%; 
+  background: url("https://i.postimg.cc/Sx7dw8sg/bnaacc.jpg");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  color: white;
+  align-items: center;
+  min-height:29vh;
+  z-index: 1;filter: saturate(134%);
+}  
+.valign h3 {
+      font-family: "Nunito", sans-serif !important;
+    font-weight: 300;
+    font-size: 2.3rem;
+    /* text-shadow: 1px 1px black; */
+    padding: 0rem 3.2rem;
+    text-align: center;
+    margin-top: -4rem;
+}
+.innernav h1 {
+  font-family: "Markerfelt", serif !important;
+  text-shadow: 0 0 1px black;
+  font-weight: 100;
+  margin: 1em 0.6em !important; 
+  margin-left:3px;
+  letter-spacing: 0.17rem;
+  font-size:2.4rem;
+  /* display: none; */
+}
+
+.valign {
+  flex: 1;
+  display: flex;
+  align-items: center; 
+  width: 100%;
+  flex-flow: column;
+  justify-content: center;
+  z-index: 3; 
+}
+.gal #register{
+font:15px Raleway !important; 
+margin-top:3.5em; 
+padding:1em;
+border:0.5px solid black !important;
+background-color:rgba(0,0,0,0.5)!important;
+box-shadow:4px -3px 3px green, -4px  3px 3px red;
+}
+.DropDownWidget_container__V1u5p{
+display:none;
+}
+.HTML__inner{
+color: #9A9A9A;
+font-size: 16px;
+
+font-family: Raleway;
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+.HTML__container img{
+width:100%;
+}
+
+.AvatarWidget_avatarBorder__5TAoW, .Header_containerMultilink__aFYsq{
+display:none
+} 
+
+.ProductHeader_containerMultilink__pK9rQ, .UserPage_footerBage__Z5W8T{
+display:none
+}
+.dual-btn{
+
+display: flex;
+flex-direction: row;
+width:100%;
+justify-content: center;
+margin:auto;
+
+}
+.dual-btn > div{
+flex:1; 
+}
+.dual-btn button{ 
+background-color:cream;
+border-radius:2em; 
+border:none;
+margin:1em;
+
+padding:1.5em;
+
+
+}
+.dual-btn button svg {
+width:3em;
+height:3em;
+}
+
+/*The I next to BBUIUC*/
+
+@media (max-width:600px) {
+
+}
+@media (min-width: 600px) and (orientation:landscape) and (max-width:960px){
+
+.gal {
+ background:url('https://i.postimg.cc/WzrY0q32/9948000b-b8ac-4f2c-8ce1-7e60b8b3f527.jpg');
+ background-repeat:no-repeat;  
+ background-size:cover;
+ background-position: bottom center;
+ min-height:70vh;
+ padding:2rem; 
+} 
+.valign a img{
+display:inline;
+width:2.6em;
+height:2.6em;
+}
+.dual-btn {
+zoom:0.7;
+} 
+}
+
+.flex-row{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+.align-vert{
+
+  align-items: center;
+} 
+.navIcons i{
+  font-size: x-large;
+  margin: 0em 1.2rem;
+}
+.navIcons i:last-child{
+margin:0em 0em 0em 1rem;
+}
+
+/*Side view on my phone is too small to show this :)*/
+@media (min-width:961px)  {
+.gal{ 
+ background:url('https://i.postimg.cc/WzrY0q32/9948000b-b8ac-4f2c-8ce1-7e60b8b3f527.jpg');
+ background-repeat:no-repeat; 
+ background-attachment:fixed; 
+ background-size:cover;
+ background-position: center center;
+}
+
+}
+</style>
+<title>BBUIUC</title>
+<div id="popup-img" onclick='hidePopup()'>
+<img src="" />
+</div>
+<div class='HTML__container gal' >
+
+  <div class="overlay" style="
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-209deg, rgb(37 24 5 / 69%), #3506067a 63%);
+  z-index: 3;
+  top:0;
+  left:0
+">
+
+  </div>
+<div class="innernav">
+  <div class="flex-row align-vert">
+    <a href="#"><img class="sitelogo" src="https://i.postimg.cc/y856WFGt/newavatarnobkg.png" alt="redblackgreen" border="0"></a>
+    <h1>BBUIUC</h1>
+  </div>
+  <div class="navIcons flex-row align-vert">
+  <i class="bi bi-grid"></i> 
+  </div>
+</div>
+<div class="valign">
+  <h3>
+    Discover Black-owned businesses at UIUC
+  </h3> 
+
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script type="text/javascript"> 
+document.querySelector('.UserPage_container__mf_wM').style.maxWidth = "100vw";  
+
+function hidePopup(){
+  document.querySelector('#popup-img').style.display = "none";
+}
+function moveTo(){ 
+
+
+  $('html, body').animate({
+    scrollTop: $("#selection").offset().top
+  }, 370);
+
+}            
+
+
+
+</script>
