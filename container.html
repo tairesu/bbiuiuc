@@ -193,10 +193,11 @@ a.LinkWidget_link__jHKiK img {
     background: #f9e5d64a;
 } 
 .footer{
-
+    display: flex;
     width:100%;
     min-height:25vh;
     background: linear-gradient(#0b0503, #070201);
+
 }
 .footer .content-lapse {
     width: 100%;
@@ -206,7 +207,7 @@ a.LinkWidget_link__jHKiK img {
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-evenly;
-
+    align-self: center;
     font-family: "Nunito", sans-serif !important;
     font-optical-sizing: auto; 
     font-style: normal !important;
@@ -217,7 +218,8 @@ a.LinkWidget_link__jHKiK img {
 .content-lapse .half {
     display: flex;
     flex-flow: column; 
-    width: min-content;
+    flex:1;
+    padding: 0 0.5rem;
 }
 .content-lapse .divider{
     min-height:18vh;
@@ -231,21 +233,29 @@ a.LinkWidget_link__jHKiK img {
 }
 .content-lapse .half i {
     padding: 1rem;
-    color:#cb8f5a !important;
+    color:#923f26 !important;
 }
-.content-lapse .left button {
+.content-lapse button {
     background: none;
     border: none;
     text-wrap: nowrap;
     padding: 0;
     color: #f8f8f8 !important;
     font-weight: 300;
-    margin: 1rem 0rem; 
+    margin: 0.55rem 0rem; 
 } 
+.content-lapse .qr img{
+    width:70%; 
+}
 .content-lapse .contact{
     text-align: left;
     text-wrap:nowrap;
+
+   
 } 
+.contact p{
+     margin: 0.55rem 0rem !important; 
+}
 .selection-container{
     width:100%;
     display: flex;
@@ -1137,19 +1147,15 @@ div#businesses {
         <div class="content-lapse">
             <div class="left half">
                 <div class="qr">
-                    <img src="https://i.postimg.cc/zyKrFnhR/qrcode-grey-red.png">
+                    <img src="https://i.postimg.cc/vHLZc9GF/qrcode-grey-red.png">
                 </div>
             </div> 
             <div class="right half">
-                <div class="contact"> 
-                    <p class="info"><i class="bi bi-instagram"></i>bbuiuc</p>
-                </div>
-                <div class="contact"> 
-                    <p class="info"><i class="bi bi-envelope"></i>bbuiuc@gmail.com</p>
-                </div>
+                
                 <div class="clickable-btns">
-                    <button><i class="bi bi-search"></i>Search BBUIUC</button>
-                    <button><i class="bi bi-building-add"></i>Register a Business</button>
+                    <button onclick="redirect('https://instagram.com/bbuiuc')"><i class="bi bi-instagram"></i>bbuiuc</button> 
+                    <button onclick="redirect('mailto:bbuiuc@gmail.com')"><i class="bi bi-envelope"></i>bbuiuc@gmail.com</button>
+                    <button onclick="redirect('')"><i class="bi bi-building-add"></i>Register a Business</button>
                 </div>
             </div>
         </div>
@@ -1222,7 +1228,11 @@ div#businesses {
         document.querySelector('#popup-img').style.display = "flex";
         document.querySelector('#popup-img img').src = src;
     }
-
+    function redirect(src) {
+        if (src) {
+            window.location.href = src
+        }
+    }
     function activateClickable() {
 
         var all_imgs = document.querySelectorAll(".section .imgs img");
