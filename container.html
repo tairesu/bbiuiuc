@@ -329,12 +329,106 @@ a.LinkWidget_link__jHKiK img {
   visibility: hidden;
 } 
  
+.call-to-action {
+    padding-top: 2rem;
+    background-color: white;
+}
 
+.call-to-action h3 {
+    font-size: xx-large;
+}
+
+.call-to-action .stat p:first-child {
+    color: #b46414;
+    font-size: 2rem;
+}
+
+.call-to-action .stat p:last-child {
+    color: darkgrey;
+    margin-top: 0;
+}
+
+.call-to-action button#register {
+    margin: 2rem 0;
+    border: none;
+    padding: 1.5rem;
+    background: #f6f6f6;
+}
+.memberships {
+    padding: 2rem 2rem 0rem 2rem;
+}
+
+.membership-container {
+    width: 100%;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scroll-snap-stop: always;
+    /* scroll-snap-align: center; */
+}
+.memberships > p.text-left {
+    margin: 0.2rem 0;
+    color: #acacac;
+}
+
+.membership {
+    margin-top: 2rem;
+    background-color: white;
+    max-width: 33%;
+    min-width: 291px;
+    text-align: left;
+    margin: 0 1rem;
+    padding: 1rem 1.4rem;
+    /* border: 1px solid rgba(0,0,0,0.1); */
+    /* scroll-snap-type: x mandatory; */
+    scroll-snap-align: start;
+    border-radius: 1rem;
+}
+
+ul {
+    padding-inline-start: 2rem !important;
+}
+
+li {
+    margin: 1.6rem 0;
+}
+
+.membership h3.header {
+    font-size: 2rem;
+    margin: 1rem 0 1rem 0;
+    /* text-align: center; */
+}
+.membership li {
+font-weight:200
+}
+span.bolded {
+    font-weight: 500;
+}
+.memberships> h3 {
+    font-size: 2.4rem;
+    margin-bottom: 0;
+}
+a#pay {
+    margin: 2rem 0;
+    opacity:0.6;
+    border-radius: 1rem;
+    flex: 1;
+    padding: 2rem 0;
+    font-size: large;
+    background:lightgrey;
+    color:grey;
+} 
+a#pay.active{
+    opacity: 1;
+    background: #1e6332;
+    color: white;
+}
 @media (min-width:960px) {
     .resp-contain {
     width: 100%;
     display: flex;
 }
+
 
 .resp-contain >.selection-container {
     flex-flow: column;
