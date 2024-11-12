@@ -350,9 +350,12 @@ a.LinkWidget_link__jHKiK img {
 
 .call-to-action button#register {
     margin: 2rem 0;
-    border: none;
     padding: 1.5rem;
-    background: #f6f6f6;
+    border: 1px solid #ece8e0 !important;
+    background: #ffffff !important;
+    border-radius: 1rem;
+    color: #4c4c4c;
+    font-weight: 400;
 }
 .memberships {
     padding: 2rem 2rem 0rem 2rem;
@@ -364,6 +367,7 @@ a.LinkWidget_link__jHKiK img {
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
     scroll-snap-stop: always;
+    margin-top: 2rem;
     /* scroll-snap-align: center; */
 }
 .memberships > p.text-left {
@@ -372,7 +376,6 @@ a.LinkWidget_link__jHKiK img {
 }
 
 .membership {
-    margin-top: 2rem;
     background-color: white;
     max-width: 33%;
     min-width: 291px;
@@ -402,11 +405,15 @@ li {
 font-weight:200
 }
 span.bolded {
-    font-weight: 500;
+    font-weight: 500 !important;
+    
 }
 .memberships> h3 {
     font-size: 2.4rem;
     margin-bottom: 0;
+}
+.membership.selected {
+    border: 1.3px solid #3f724d;
 }
 a#pay {
     margin: 2rem 0;
@@ -420,8 +427,15 @@ a#pay {
 } 
 a#pay.active{
     opacity: 1;
-    background: #1e6332;
+    background: #3f724d ;
     color: white;
+}
+button#register {
+    
+    /* box-shadow: 2px 2px #7f3b03; */
+}
+* {
+    
 }
 @media (min-width:960px) {
     .resp-contain {
