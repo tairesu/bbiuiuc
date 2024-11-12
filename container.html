@@ -118,6 +118,9 @@ option {
 .imgs::-webkit-scrollbar {
     display:none;
 }
+.hideMe {
+    display: none;
+}
 .entry { 
  flex-grow: 1; 
  /* width: 50%; */
@@ -352,10 +355,15 @@ a.LinkWidget_link__jHKiK img {
     margin: 2rem 0;
     padding: 1.5rem;
     border: 1px solid #ece8e0 !important;
-    background: #ffffff !important;
+    background: #ffffff;
     border-radius: 1rem;
     color: #4c4c4c;
     font-weight: 400;
+}
+.call-to-action button#register.activated{
+    background:#7f3b03;
+    color:white;
+    font-weight: 300;
 }
 .memberships {
     padding: 2rem 2rem 0rem 2rem;
@@ -1297,10 +1305,10 @@ div#businesses {
             </div>
         </div>
         <div class="align-vert text-center">
-            <button id="register">Become a member</button>
+            <button id="register" onclick="toggleMemberships(this)">Become a member</button>
         </div>
     </div>
-        <div class="memberships flex-col">
+        <div class="memberships hideMe flex-col">
             <h3 class="text-left">Choose a Membership</h3>
             <p class="text-left">Cancel Anytime</p>
             <div class="membership-container flex-row">
@@ -1590,6 +1598,11 @@ div#businesses {
           ele.append(globe);
       }
   });
+  }
+
+  function toggleMemberships(btn) {
+    $(btn).toggleClass("activated");
+    $(".memberships").toggle("blind", 300);
   }
   populateImgs();
   $("#carousel-selection").on("scroll", (e)=>{
