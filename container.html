@@ -118,6 +118,9 @@ option {
 .imgs::-webkit-scrollbar {
     display:none;
 }
+.hideMe {
+    display: none;
+}
 .entry { 
  flex-grow: 1; 
  /* width: 50%; */
@@ -350,9 +353,17 @@ a.LinkWidget_link__jHKiK img {
 
 .call-to-action button#register {
     margin: 2rem 0;
-    border: none;
     padding: 1.5rem;
-    background: #f6f6f6;
+    border: 1px solid #ece8e0 !important;
+    background: #ffffff;
+    border-radius: 1rem;
+    color: #4c4c4c;
+    font-weight: 400;
+}
+.call-to-action button#register.activated{
+    background:#7f3b03;
+    color:white;
+    font-weight: 300;
 }
 .memberships {
     padding: 2rem 2rem 0rem 2rem;
@@ -364,6 +375,7 @@ a.LinkWidget_link__jHKiK img {
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
     scroll-snap-stop: always;
+    margin-top: 2rem;
     /* scroll-snap-align: center; */
 }
 .memberships > p.text-left {
@@ -372,7 +384,6 @@ a.LinkWidget_link__jHKiK img {
 }
 
 .membership {
-    margin-top: 2rem;
     background-color: white;
     max-width: 33%;
     min-width: 291px;
@@ -402,11 +413,15 @@ li {
 font-weight:200
 }
 span.bolded {
-    font-weight: 500;
+    font-weight: 500 !important;
+    
 }
 .memberships> h3 {
     font-size: 2.4rem;
     margin-bottom: 0;
+}
+.membership.selected {
+    border: 1.3px solid #3f724d;
 }
 a#pay {
     margin: 2rem 0;
@@ -418,10 +433,18 @@ a#pay {
     background:lightgrey;
     color:grey;
 } 
-a#pay.active{
+a#pay.enabled{
     opacity: 1;
-    background: #1e6332;
+    background: #496347 ;
     color: white;
+    font-weight: 200;
+}
+button#register {
+    
+    /* box-shadow: 2px 2px #7f3b03; */
+}
+* {
+    
 }
 @media (min-width:960px) {
     .resp-contain {
@@ -1283,14 +1306,14 @@ div#businesses {
             </div>
         </div>
         <div class="align-vert text-center">
-            <button id="register">Become a member</button>
+            <button id="register" onclick="toggleMemberships(this)">Become a member</button>
         </div>
     </div>
-        <div class="memberships flex-col">
+        <div class="memberships hideMe flex-col">
             <h3 class="text-left">Choose a Membership</h3>
             <p class="text-left">Cancel Anytime</p>
             <div class="membership-container flex-row">
-                <div class="membership" onclick="handleMembership('bronze')">
+                <div class="membership" onclick="handleMembership('bronze')" name="bronze">
                     <div class="flex-col">
                         <h3 class="header">$ 2.99 / mo</h3>
                         <ul>
@@ -1305,7 +1328,7 @@ div#businesses {
                         </ul>
                     </div>
                 </div>
-                <div class="membership" onclick="handleMembership('silver')">
+                <div class="membership" onclick="handleMembership('silver')" name="silver" class="selected">
                     <div class="flex-col">
                         <h3 class="header"> $ 4.99 / mo</h3>
                         <ul>
@@ -1328,7 +1351,7 @@ div#businesses {
                         </ul>
                     </div>
                 </div>
-                <div class="membership" onclick="handleMembership('gold')">
+                <div class="membership" onclick="handleMembership('gold')" name="gold"> 
                     <div class="flex-col">
                         <h3 class="header"> $ 7.99 / mo</h3>
                         <ul>
@@ -1576,6 +1599,23 @@ div#businesses {
           ele.append(globe);
       }
   });
+  }
+  
+  function handleMembership(tier) {
+    const tiers = {
+        'gold' : 'https://buy.stripe.com/5kA7usfkyb1nbpS4gi',
+        'bronze' : 'https://buy.stripe.com/aEU6qob4i5H3fG8eUU',
+        'silver' : 'https://buy.stripe.com/4gw4igfky6L72TmeUV'
+    };
+    $(".membership.selected").removeClass("selected");
+    $(".membership[name='" + tier + "']").addClass("selected");
+    $("a#pay").addClass("enabled");
+    $("a#pay").attr("href",tiers[tier]);
+
+  }
+  function toggleMemberships(btn) {
+    $(btn).toggleClass("activated");
+    $(".memberships").toggle("blind", 300);
   }
   populateImgs();
   $("#carousel-selection").on("scroll", (e)=>{
