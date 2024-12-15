@@ -8,6 +8,7 @@
         /* width: 80%; */
         width: 100%;
         min-height: 56vh; 
+        background-color: #f7f7fd !important;
     }
     #businesses div.TextWidget_container__qyZJA{
       margin-bottom:  1rem ; 
@@ -178,6 +179,10 @@ a.LinkWidget_link__jHKiK img {
 }
 .UserPage_container__mf_wM {
     background: #f7f7fd !important;
+    margin-bottom:0 !important;
+}
+.Footer_footer__OYoYH {
+    display: none !important;
 }
 .entry a i {
     color: darkgrey;
@@ -322,6 +327,8 @@ a.LinkWidget_link__jHKiK img {
   margin-top:-0.1rem;
   /* filter: invert(1);*/
 }
+
+
 #carousel-selection button:focus, #carousel-selection button:active, #carousel-selection button:focus-visible {
     border:none;
     outline: none;
@@ -439,13 +446,7 @@ a#pay.enabled{
     color: white;
     font-weight: 200;
 }
-button#register {
-    
-    /* box-shadow: 2px 2px #7f3b03; */
-}
-* {
-    
-}
+
 @media (min-width:960px) {
     .resp-contain {
     width: 100%;
@@ -472,8 +473,20 @@ div#carousel-selection {
 
 #carousel-selection button {
     margin: 0.12rem;
+    transition-property : background-color, color, font-weight, opacity;
+    transition-duration : 0.3s;
+    transition-timing-function : ease;
 }
+#carousel-selection button:not(.active) img {
+    filter:invert(0);
+}
+#carousel-selection button.active img {
+    filter:invert(1) !important; 
+}
+#carousel-selection button img {
 
+    transition : filter 0.3s ease;
+}
 div#businesses {
     overflow-y: auto;
     flex: 3;
@@ -1511,26 +1524,37 @@ div#businesses {
             return false;
         }
     }
+    //returns the color for each category 
     function getColor(category) {
+        const category_colors = {
+            'art' : '#6c7771',
+            'beauty' : '#b78785',
+            'health' : '#c22a00',
+            'food' : '#267f74',
+            'business' : '#a89494',
+            'fashion' : '#2f5f3a',
+            'hair' : '#ffb055',
+            'tech' : '#0f312c',
+            'music' : '#533925',
+            'photography' : '#1a1833'
+        };
             /*The first anchor of every .section has a different color associated with the background */
-        return $('.section[id="' + category + '"] a ')[0].style.background;
+        return category_colors[category];
     }
+
     function inactivateBtn(btn) {
         $(btn).removeClass('active');
         $(btn).css({
                 'background-color': 'transparent',
                 'font-weight': '100',
                 'color' : '#7d7c7f',
-                'opacity' : '0.5',
-                'transition-property' : 'background-color, color, font-weight, opacity',
-                'transition-duration' : '0.3s',
-                'transtiion-timing-function' : 'ease'
+                'opacity' : '0.5'
             });
 
-         $(btn).find('img').css({
-            'filter' : 'invert(0)',
-            'transition' : 'filter 0.3s ease'
-        })
+        /* $(btn).find('img').css({
+            'filter' : 'invert(0) !important',
+            
+        }) */
     }
     function activateBtn(btn, bkgColor) {
         $(btn).addClass('active');
@@ -1538,15 +1562,11 @@ div#businesses {
                 'background-color': bkgColor,
                 'font-weight': '500',
                 'color' : 'white',
-                'opacity' : '1',
-                'transition-property' : 'background-color, color, font-weight, opacity',
-                'transition-duration' : '0.3s',
-                'transtiion-timing-function' : 'ease'
+                'opacity' : '1'
         });
-        $(btn).find('img').css({
-            'filter' : 'invert(1)',
-            'transition' : 'filter 0.3s ease'
-        })
+        $('#carousel-selection button.active img').css({
+            'filter' : 'invert(1)'
+        }) ;
 
     }
     function setCarouselBtn(category) {
@@ -1617,20 +1637,23 @@ div#businesses {
     $(btn).toggleClass("activated");
     $(".memberships").toggle("blind", 300);
   }
-  populateImgs();
+
+
+
   $("#carousel-selection").on("scroll", (e)=>{
     var currentXpos = e.currentTarget.scrollLeft;
             //Scrolling will trigger businesses to pop up!!!!
-
     console.log("Carousel selection's X:" + currentXpos);
 });
-
   $("#carousel-selection button[name]").on("mousedown" , (f)=>{
     activateCategory(f.currentTarget.name);
 });
      /* $("#carousel-selection button[name]").on("click" , (e)=>{
         activateCategory(e.currentTarget.name);
     });*/
+
+
+    populateImgs();
   addSocialIcons();
   logoPlaceholders();
 
