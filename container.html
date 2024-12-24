@@ -433,10 +433,11 @@ a#pay {
     background:lightgrey;
     color:grey;
 } 
-a#pay.active{
+a#pay.enabled{
     opacity: 1;
-    background: #3f724d ;
+    background: #496347 ;
     color: white;
+    font-weight: 200;
 }
 button#register {
     
@@ -1312,7 +1313,7 @@ div#businesses {
             <h3 class="text-left">Choose a Membership</h3>
             <p class="text-left">Cancel Anytime</p>
             <div class="membership-container flex-row">
-                <div class="membership" onclick="handleMembership('bronze')">
+                <div class="membership" onclick="handleMembership('bronze')" name="bronze">
                     <div class="flex-col">
                         <h3 class="header">$ 2.99 / mo</h3>
                         <ul>
@@ -1327,7 +1328,7 @@ div#businesses {
                         </ul>
                     </div>
                 </div>
-                <div class="membership" onclick="handleMembership('silver')">
+                <div class="membership" onclick="handleMembership('silver')" name="silver" class="selected">
                     <div class="flex-col">
                         <h3 class="header"> $ 4.99 / mo</h3>
                         <ul>
@@ -1350,7 +1351,7 @@ div#businesses {
                         </ul>
                     </div>
                 </div>
-                <div class="membership" onclick="handleMembership('gold')">
+                <div class="membership" onclick="handleMembership('gold')" name="gold"> 
                     <div class="flex-col">
                         <h3 class="header"> $ 7.99 / mo</h3>
                         <ul>
@@ -1517,18 +1518,17 @@ div#businesses {
     function inactivateBtn(btn) {
         $(btn).removeClass('active');
         $(btn).css({
-                'background-color': 'transparent',
+                'background-color': '#dddddd',
                 'font-weight': '100',
-                'color' : '#7d7c7f',
-                'opacity' : '0.5',
+                'color' : 'rgb(125, 124, 127)',
+                'opacity' : '0.6',
                 'transition-property' : 'background-color, color, font-weight, opacity',
                 'transition-duration' : '0.3s',
                 'transtiion-timing-function' : 'ease'
             });
 
          $(btn).find('img').css({
-            'filter' : 'invert(0)',
-            'transition' : 'filter 0.3s ease'
+            'filter' : 'invert(0)'
         })
     }
     function activateBtn(btn, bkgColor) {
@@ -1599,7 +1599,11 @@ div#businesses {
       }
   });
   }
-
+  function handleMembership(tier) {
+    $(".membership.selected").removeClass("selected");
+    $(".membership[name='" + tier + "']").addClass("selected");
+    $("a#pay").addClass("enabled");
+  }
   function toggleMemberships(btn) {
     $(btn).toggleClass("activated");
     $(".memberships").toggle("blind", 300);
